@@ -1,17 +1,41 @@
+import React from "react";
+import styled from "styled-components";
 
-import React from 'react'
-import "./FancyButton.css"
-
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>{
-    Text:string
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  Text: string;
 }
 
-const FancyButton:React.FC<ButtonProps>=({Text})=> {
-    return (
-        <div>
-            <button className="link-button" >{Text}</button>
-        </div>
-    )
-}
+const Button = styled.button`
+  appearance: none;
+  background: none;
+  border: none;
+  outline: none;
+  display: inline-block;
+  padding: 10px 15px;
+  border-radius: 8px;
+  background-image: linear-gradient(
+    to right,
+    #ffce00 50%,
+    #ffce00 50%,
+    #fe4880
+  );
+  background-size: 200%;
+  background-position: 0%;
+  transition: 0.4s;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  &:hover {
+    background-position: 100% 0%;
+  }
+`;
 
-export default FancyButton
+const FancyButton: React.FC<ButtonProps> = ({ Text }) => {
+  return (
+    <div>
+      <Button>{Text}</Button>
+    </div>
+  );
+};
+
+export default FancyButton;
